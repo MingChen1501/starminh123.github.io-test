@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <label for="productName">Tên sản phẩm</label>
+            </td>
+            <td>
+                <input type="text" name="productName" id="productName" placeholder="Nhập tên sản phẩm">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="price">Đơn giá</label>
+            </td>
+            <td>
+                <input type="number" name="price" id="price" placeholder="Nhập giá sản phẩm (số)">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="quantity">Số lượng</label>
+            </td>
+            <td> 
+                <input type="number" name="quantity" id="quantity" placeholder="Nhập số lượng (số)">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="addProduct">Thêm sản phẩm</button>
+            </td>
+        </tr>
+    </table>  
+    <table border="1">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>STT</td>
+                <td>Tên sản phẩm</td>
+                <td>Đơn giá</td>
+                <td>Số lượng</td>
+                <td>Thành tiền</td>
+            </tr>
+            <input type="checkbox" value="">
+        </thead>
+        <tbody id="listProduct"></tbody>
+        <tfoot>
+            <tr>
+                <td><button id="removeProducts">Xóa sản phẩm</button></td>
+                <td colspan="3"></td>
+                <td>Tổng tiền</td>
+                <td><span id="totalPrice">0</span></td>
+            </tr>
+        </tfoot>
+    </table>
+    <script src="gd3b3.js"></script>
+</body>
+</html>

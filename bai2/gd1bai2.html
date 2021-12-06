@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+        <div id="register">
+            <table border="1">
+                <tr>
+                    <td colspan="2">
+                        <h1>Thông tin sinh viên</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Họ tên</p>
+                        <input type="text" name="fullName" id="fullname" />
+                        <div id="submitName" class="error"><p></p></div>
+                    </td>
+                    <td>
+                        <p>Email</p>
+                        <input ty   pe="email" name="email" id="email"/>
+                        <div id="submitEmail" class="error"><p></p></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Giới tính</p>
+                        <input type="radio" name="gender" id="male" /><label for="">Nam</label>
+                        <input type="radio" name="gender" id="female" /><label for="">Nữ</label>
+                        <div id="submitGender" class="error"><p></p></div>
+                    </td>
+                    <td>
+                        <p>Ngày sinh</p>
+                        <input type="date" name="birthDate" id="birthDate">
+                        <div id="submitBrithDate" class="error"><p></p></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Số điện thoại</p>
+                        <input type="tel" name="tel" id="phoneNumber">
+                        <div id="submitTel" class="error"><p></p></div>
+                    </td>
+                    <td>
+                        <p>Địa chỉ</p>
+                        <textarea id="address" cols="30" rows="2"></textarea>
+                        <div id="submitAddress" class="error"><p></p></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Cơ sở</p> 
+                        <select id="coso">
+                            <option value="">Mời chọn cơ sở Fpoly</option>
+                            <option value="HN">FPT Polytechnic Hà Nội</option>
+                            <option value="DN">FPT Polytechnic Đà Nẵng</option>
+                            <option value="HCM">FPT Polytechnic Hồ Chí Minh</option>
+                            <option value="TN">FPT Polytechnic Tây Nguyên</option>
+                            <option value="CT">FPT Polytechnic Cần Thơ</option>
+                            <option value="HT">FPT Polytechnic HiTech</option>
+                        </select>
+                        <div id="submitCoSo" class="error"><p></p></div>
+                    </td>
+                    <td>
+                        <p>Ngành học</p> 
+                        <select id="major">
+                            <option value="">Mời chọn ngành học</option>
+                            <option value="CNTT">Công nghệ thông tin</option>
+                            <option value="KT">Kinh tế</option>
+                            <option value="DV">Du lịch - Nhà hàng - Khách sạn</option>
+                            <option value="CKTDH">Cơ khí, (điện) tự động hóa</option>
+                            <option value="TM">Thẩm mĩ,làm đẹp</option>
+                        </select>
+                        <div id="submitMajor" class="error"><p></p></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Kỹ năng</p>
+                        <input type="checkbox" name="" id="skill" /><label for=""
+                        >Thuyết trình</label
+                        >
+                        <input type="checkbox" name="" id="skill" /><label for=""
+                        >Làm việc nhóm</label
+                        >
+                        <input type="checkbox" name="" id="skill" /><label for=""
+                        >Đặt mục tiêu</label
+                        >
+                        <input type="checkbox" name="" id="skill" /><label for="">Khác</label>
+                        <div id="submitSkill" class="error"><p></p></div>
+                    </td>
+                    <td>
+                        <p>Sở thích</p>
+                        <select id="hobby" multiple>
+                            <option value="sport">Thể thao</option>
+                            <option value="techonology">Công nghệ</option>
+                            <option value="travelling">Du lịch</option>
+                            <option value="music">Nghe nhạc</option>
+                            <option value="singing">Hát</option>
+                            <option value="other">khác</option>
+                        </select>
+                        <div id="submitHobby" class="error"><p></p></div>
+                   </td>
+                </tr>
+            </table>
+            <button id="save">Lưu dữ liệu</button>
+        </div>
+        <div id="notification" style="display: none;">
+            <p>Xin chúc mừng !</p>
+            <p>Bạn đã gửi biểu mẫu thành công</p>
+            <button id="back_register">Hiện lại form</button>
+        </div>
+    <script src="./gd1bai2.js"></script>
+  </body>
+</html>
