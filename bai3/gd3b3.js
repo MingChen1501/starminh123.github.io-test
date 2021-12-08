@@ -17,26 +17,24 @@ function showProducts(data) {
             <td><input type="checkbox" value="${index}" id="remove"></td> 
             <td>${index + 1}</td>
             <td>${item.name}</td>
-            <td>${item.price}</td>
-            <td>${item.quantity}</td>
-            <td>${item.totalPrice}</td>
+            <td><input type="number" value="${item.price}" id="showValue"></td>
+            <td><input type="number" value="${item.quantity}" id="showQuantity"></td>
+            <td>${item.price * item.quantity}</td>
         </tr>
     `
     }).join("");
     $("#listProduct").innerHTML = result;
     SumPrice(listProducts);
     listProductremove();
+    changeQuantity();
     //# = id, stt = index in data
 }
 function listProductremove() {
     const listRemove = document.querySelectorAll("#remove");
-    //let res = [];
-    //let can be re-assign
     for (let id of listRemove) {
         id.addEventListener("click", () => {
             if (id.checked && !indexRemove.includes(id.value)){
                 /* console.log("push"); */
-                /* res.push(id.value); */
                 indexRemove.push(id.value);
                 /* console.table(indexRemove); */
             } else {
@@ -46,7 +44,7 @@ function listProductremove() {
             }
         })
     }
-    //res contain id product is checked in listProducts  remove
+    //indexRemove[] contain id product is checked in listProducts  remove
     
 }
 function removeProduct() {
@@ -75,6 +73,32 @@ function removeProduct() {
             showProducts(listProducts);
         }
     })
+}
+function changeQuantity() {
+    const price = document.querySelectorAll("#showValue")
+    if(price) {
+        for(let i of price) {
+            let b = +i.parentElement.previousElementSibling.previousElementSibling.innerHTML - 1;
+            i.addEventListener("change", () => {
+                console.log(b)
+                console.table(listProducts[b])
+                listProducts[b].price = +i.value;
+                listProducts[b].totalPrice = listProducts[b].quantity + listProducts[b].price;
+                showProducts(listProducts);
+            })
+        }
+    }
+    const quantity = document.querySelectorAll("#showQuantity");
+    if(quantity) {
+        for(let i of quantity) {
+            let b = +i.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML - 1;
+            i.addEventListener("change", () => {
+                listProducts[b].quantity = +i.value;
+                listProducts[b].totalPrice = listProducts[b].quantity + listProducts[b].price;
+                showProducts(listProducts);
+            })
+        }
+    }
 }
 function addProduct() {
     const btnAdd = $("#addProduct");
@@ -116,5 +140,6 @@ function test(n) {
         totalPrice: 15
     }) 
     showProducts(listProducts);
-    if (n != 0) return test(n-1);
+    
+    if (n && n > 1) return test(n-1);
 }
