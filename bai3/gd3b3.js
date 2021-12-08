@@ -19,16 +19,17 @@ function showProducts(data) {
             <td>${item.name}</td>
             <td><input type="number" value="${item.price}" id="showValue"></td>
             <td><input type="number" value="${item.quantity}" id="showQuantity"></td>
-            <td>${item.price * item.quantity}</td>
+            <td>${item.totalPrice}</td>
         </tr>
     `
     }).join("");
     $("#listProduct").innerHTML = result;
+    if(indexRemove.length !== 0) {
+        indexRemove.splice(0, indexRemove.length);
+    }
     SumPrice(listProducts);
     listProductremove();
-    changeQuantity();
-    console.log("danh sach san pham")
-    console.table(listProducts);
+    changeValueInListProducts();
 }
 function listProductremove() {
     const listRemove = document.querySelectorAll("#remove");
@@ -39,14 +40,10 @@ function listProductremove() {
             } else {
                 indexRemove = indexRemove.filter(item => item !== id.value);
             }
-            console.log("danh sach index san pham can xoa")
-            console.table(indexRemove);
         })
     }
-    
 }
 function removeProduct() {
-    
     const btnRemove = $("#removeProducts")
     btnRemove.addEventListener("click", () => {
         if(indexRemove.length > 0) {
@@ -60,14 +57,12 @@ function removeProduct() {
         }
     })
 }
-function changeQuantity() {
+function changeValueInListProducts() {
     const price = document.querySelectorAll("#showValue")
     if(price) {
         for(let i of price) {
             let b = +i.parentElement.previousElementSibling.previousElementSibling.innerHTML - 1;
             i.addEventListener("change", () => {
-                console.log(b)
-                console.table(listProducts[b])
                 listProducts[b].price = +i.value;
                 listProducts[b].totalPrice = listProducts[b].quantity * listProducts[b].price;
                 showProducts(listProducts);
