@@ -83,7 +83,7 @@ function changeQuantity() {
                 console.log(b)
                 console.table(listProducts[b])
                 listProducts[b].price = +i.value;
-                listProducts[b].totalPrice = listProducts[b].quantity + listProducts[b].price;
+                listProducts[b].totalPrice = listProducts[b].quantity * listProducts[b].price;
                 showProducts(listProducts);
             })
         }
@@ -94,7 +94,7 @@ function changeQuantity() {
             let b = +i.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML - 1;
             i.addEventListener("change", () => {
                 listProducts[b].quantity = +i.value;
-                listProducts[b].totalPrice = listProducts[b].quantity + listProducts[b].price;
+                listProducts[b].totalPrice = listProducts[b].quantity * listProducts[b].price;
                 showProducts(listProducts);
             })
         }
