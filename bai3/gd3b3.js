@@ -102,23 +102,23 @@ removeProduct();
 function test(n) {
     listProducts.push({
         name: "cam",
-        price: 2,
+        price: 20000,
         quantity: 4,
-        totalPrice: 8
+        totalPrice: 80000
     })
     
     listProducts.push({
         name: "xoai",
-        price: 3,
+        price: 20000,
         quantity: 4,
-        totalPrice: 12
+        totalPrice: 80000
     })
     
     listProducts.push({
         name: "le",
-        price: 3,
+        price: 30000,
         quantity: 5,
-        totalPrice: 15
+        totalPrice: 150000
     }) 
     showProducts(listProducts);
     
