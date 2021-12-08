@@ -27,24 +27,22 @@ function showProducts(data) {
     SumPrice(listProducts);
     listProductremove();
     changeQuantity();
-    //# = id, stt = index in data
+    console.log("danh sach san pham")
+    console.table(listProducts);
 }
 function listProductremove() {
     const listRemove = document.querySelectorAll("#remove");
     for (let id of listRemove) {
         id.addEventListener("click", () => {
             if (id.checked && !indexRemove.includes(id.value)){
-                /* console.log("push"); */
                 indexRemove.push(id.value);
-                /* console.table(indexRemove); */
             } else {
-                /* console.log("filter"); */
                 indexRemove = indexRemove.filter(item => item !== id.value);
-                /* console.table(indexRemove); */
             }
+            console.log("danh sach index san pham can xoa")
+            console.table(indexRemove);
         })
     }
-    //indexRemove[] contain id product is checked in listProducts  remove
     
 }
 function removeProduct() {
@@ -52,24 +50,12 @@ function removeProduct() {
     const btnRemove = $("#removeProducts")
     btnRemove.addEventListener("click", () => {
         if(indexRemove.length > 0) {
-            /* console.log("index List truoc khi sort")
-            console.table(indexRemove); */
             indexRemove.sort((a, b) => +(a) - +(b));
-            /* console.log("index List sau khi sort")
-            console.table(indexRemove);
-            console.log("list truoc khi xoa")
-            console.table( listProducts); */
             while(indexRemove.length !== 0) {
                 let i = +indexRemove[indexRemove.length - 1]
                 listProducts.splice(i, 1);
                 indexRemove.pop();
-                //0 1 2 3 4 5
-                //
             }
-           /*  console.log("index List sau khi xoa")
-            console.table(indexRemove);
-            console.log("list sau khi xoa")
-            console.table( listProducts); */
             showProducts(listProducts);
         }
     })
